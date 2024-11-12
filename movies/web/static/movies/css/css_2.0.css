@@ -1,0 +1,122 @@
+.footer {
+  --footer-background: #ED5565;
+  background: var(--footer-background);
+  display: grid;
+  grid-area: footer;
+  position: relative;
+  min-height: 12rem;
+  padding: 2rem;
+  color: #F5F7FA;
+}
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: var(--footer-background);
+  filter: url("#blob");
+}
+
+.bubble {
+  position: absolute;
+  left: var(--position, 50%);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  animation: bubbleAnimation var(--time, 8s) ease-in-out infinite var(--delay, 0s);
+  transform: translate(-50%, 100%);
+}
+
+.content a,
+.content p {
+  color: #F5F7FA;
+  text-decoration: none;
+}
+
+.content a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.floating-shape {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: floatAnimation 10s ease-in-out infinite;
+  backdrop-filter: blur(5px);
+}
+
+@keyframes bubbleAnimation {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}
+
+@keyframes floatAnimation {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-15px) translateX(10px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+button[type="futter_button"] {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #ED5565;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+button[type="futter_button"]:hover {
+  background-color: #ff6b7d;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button[type="futter_button"]:active {
+  background-color: #e04455;
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+button[type="futter_button"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 107, 125, 0.4);
+}
