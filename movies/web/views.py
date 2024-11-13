@@ -7,3 +7,6 @@ def home(request):
 
 def profile(request):
     return render(request, 'web/profile.html')
+
+def auths(request):
+    return render(request, 'web/auths.html')

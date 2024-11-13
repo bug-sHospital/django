@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Goey footer</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;display=swap'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="main">
+    <div class="auth-container">
+        <h2 id="form-title">Авторизация</h2>
+        <form id="auth-form">
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div id="confirm-password-group" class="form-group" style="display:none;">
+                <label for="confirm-password">Подтвердите пароль</label>
+                <input type="password" id="confirm-password" name="confirm-password">
+            </div>
+            <button type="submit" class="form-button" id="form-button">Войти</button>
+        </form>
+        <a href="#" class="toggle-link" onclick="toggleForm()" id="toggle-link">Нет аккаунта? Зарегистрируйтесь</a>
+    </div>
+</div>
+<div class="footer">
+  <div class="bubbles">
+    <div class="bubble" style="--size:2.531936615034952rem; --distance:7.5861939614726746rem; --position:44.23276458046709%; --time:3.2289072371607013s; --delay:-2.835461978972343s;"></div>
+    <div class="bubble" style="--size:4.259009076627054rem; --distance:7.345634781736792rem; --position:27.056664251842783%; --time:2.527428477096445s; --delay:-2.2374308328004284s;"></div>
+    <div class="bubble" style="--size:2.266700411152356rem; --distance:8.611570671828371rem; --position:22.078987235982407%; --time:2.1783286472415178s; --delay:-3.4914208866563254s;"></div>
+    <div class="bubble" style="--size:2.5852091559344528rem; --distance:8.09336667958285rem; --position:28.7610751649216%; --time:3.7611466672786333s; --delay:-3.6889949960744586s;"></div>
+    <div class="bubble" style="--size:5.268220857652711rem; --distance:6.943175891927294rem; --position:93.74999805910718%; --time:2.3436379306429753s; --delay:-3.039336989771051s;"></div>
+    <!-- ... remaining bubbles ... -->
+  </div>
+  <div class="content">
+        <div>
+            <p>© 2024 My Website. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="floating-shape" style="left: 20%; bottom: 5rem;"></div>
+    <div class="floating-shape" style="left: 80%; bottom: 7rem;"></div>
+</div>
+<svg style="position:fixed; top:100vh">
+  <defs>
+    <filter id="blob">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob"></feColorMatrix>
+    </filter>
+  </defs>
+</svg>
+<script>
+    function toggleForm() {
+        const formTitle = document.getElementById('form-title');
+        const formButton = document.getElementById('form-button');
+        const confirmPasswordGroup = document.getElementById('confirm-password-group');
+        const toggleLink = document.getElementById('toggle-link');
+
+        if (formTitle.innerText === 'Авторизация') {
+            formTitle.innerText = 'Регистрация';
+            formButton.innerText = 'Зарегистрироваться';
+            confirmPasswordGroup.style.display = 'block';
+            toggleLink.innerText = 'Уже есть аккаунт? Войдите';
+        } else {
+            formTitle.innerText = 'Авторизация';
+            formButton.innerText = 'Войти';
+            confirmPasswordGroup.style.display = 'none';
+            toggleLink.innerText = 'Нет аккаунта? Зарегистрируйтесь';
+        }
+    }
+</script>
+</body>
+</html>
